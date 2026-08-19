@@ -14,5 +14,7 @@ funcao login(usuario, senha) {
         retornar verdadeiro
     }
 
+    validarToken(usuario);
+    
     retornar falso
 }
