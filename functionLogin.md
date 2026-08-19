@@ -2,19 +2,14 @@
 
 
 
-funcao login(usuario, senha) {
+funcao login(token) {
 
-    usuarioBanco = buscarUsuarioNoBanco(usuario)
+ 
+    retornar falso;
+}
 
-    se usuarioBanco nao existe {
-        retornar falso
-    }
+funcao FazerPedido(token) {
 
-    se usuarioBanco.senha == senha {
-        retornar verdadeiro
-    }
-
-    validarToken(usuario);
-    
-    retornar falso
+ 
+    retornar true;
 }
