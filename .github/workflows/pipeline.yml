@@ -1,0 +1,38 @@
+name: Pipeline Demo
+
+on:
+  push:
+    branches:
+      - dev
+      - qa
+      - uat
+      - main
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Mostrar branch
+        run: echo "Executando pipeline da branch ${{ github.ref_name }}"
+
+      - name: Ambiente DEV
+        if: github.ref_name == 'dev'
+        run: echo "DEPLOY NO AMBIENTE DEV"
+
+      - name: Ambiente QA
+        if: github.ref_name == 'qa'
+        run: echo "DEPLOY NO AMBIENTE QA"
+
+      - name: Ambiente UAT
+        if: github.ref_name == 'uat'
+        run: echo "DEPLOY NO AMBIENTE UAT"
+
+      - name: Ambiente PRD
+        if: github.ref_name == 'main'
+        run: echo "DEPLOY EM PRODUCAO"
+
